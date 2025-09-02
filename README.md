@@ -1,4 +1,4 @@
-Calculator
+# Calculator
 A simple yet powerful calculator application built to perform basic mathematical operations.
 
 Features
