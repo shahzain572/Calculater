@@ -1,0 +1,251 @@
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #1a1a2e;
+            --secondary-bg: #16213e;
+            --accent-bg: #0f3460;
+            --text-primary: #e94560;
+            --text-secondary: #f5f5f5;
+            --button-bg: #2a2a4a;
+            --button-hover: #3a3a5a;
+            --special-button: #e94560;
+            --special-hover: #ff6b81;
+            --equals-button: #00d4ff;
+            --equals-hover: #00e5ff;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-secondary);
+            padding: 20px;
+        }
+
+        .calculator-container {
+            background: var(--primary-bg);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px var(--shadow);
+            overflow: hidden;
+            max-width: 400px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .calculator-header {
+            background: var(--secondary-bg);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-bg);
+            border: none;
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .mode-toggle:hover {
+            background: var(--button-hover);
+            transform: translateY(-2px);
+        }
+
+        .display-container {
+            background: var(--secondary-bg);
+            padding: 20px;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
+        .history {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 10px;
+            min-height: 20px;
+            word-wrap: break-word;
+            text-align: right;
+            width: 100%;
+        }
+
+        .display {
+            font-size: 36px;
+            font-weight: 300;
+            color: var(--text-secondary);
+            word-wrap: break-word;
+            text-align: right;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .buttons-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 20px;
+            background: var(--primary-bg);
+        }
+
+        .button {
+            background: var(--button-bg);
+            border: none;
+            color: var(--text-secondary);
+            font-size: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button:hover {
+            background: var(--button-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px var(--shadow);
+        }
+
+        .button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .button:active::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .button.special {
+            background: var(--special-button);
+            color: white;
+        }
+
+        .button.special:hover {
+            background: var(--special-hover);
+        }
+
+        .button.equals {
+            background: var(--equals-button);
+            color: white;
+            grid-column: span 2;
+        }
+
+        .button.equals:hover {
+            background: var(--equals-hover);
+        }
+
+        .button.zero {
+            grid-column: span 2;
+        }
+
+        .button.small {
+            font-size: 16px;
+        }
+
+        /* Scientific Mode Styles */
+        .scientific-buttons {
+            display: none;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            padding: 20px;
+            padding-top: 0;
+            background: var(--primary-bg);
+        }
+
+        .scientific-buttons.active {
+            display: grid;
+        }
+
+        .scientific-buttons .button {
+            font-size: 16px;
+            padding: 15px;
+        }
+
+        /* Memory Display */
+        .memory-indicator {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 12px;
+            color: #888;
+            display: none;
+        }
+
+        .memory-indicator.active {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .calculator-container {
+                max-width: 100%;
+            }
+
+            .display {
+                font-size: 28px;
+            }
+
+            .button {
+                padding: 15px;
+                font-size: 18px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .calculator-container {
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Error State */
+        .display.error {
+            color: #ff4757;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }

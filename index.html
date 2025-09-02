@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator-header">
+            <div class="memory-indicator" id="memoryIndicator">M</div>
+            <button class="mode-toggle" id="modeToggle">Scientific</button>
+        </div>
+        
+        <div class="display-container">
+            <div class="history" id="history"></div>
+            <div class="display" id="display">0</div>
+        </div>
+        
+        <div class="scientific-buttons" id="scientificButtons">
+            <button class="button small" data-action="second">2nd</button>
+            <button class="button small" data-action="pi">π</button>
+            <button class="button small" data-action="e">e</button>
+            <button class="button small" data-action="pow">xʸ</button>
+            <button class="button small special" data-action="clear">C</button>
+            
+            <button class="button small" data-action="sin">sin</button>
+            <button class="button small" data-action="cos">cos</button>
+            <button class="button small" data-action="tan">tan</button>
+            <button class="button small" data-action="log">log</button>
+            <button class="button small" data-action="ln">ln</button>
+            
+            <button class="button small" data-action="factorial">x!</button>
+            <button class="button small" data-action="sqrt">√</button>
+            <button class="button small" data-action="pow2">x²</button>
+            <button class="button small" data-action="pow10">10ˣ</button>
+            <button class="button small" data-action="reciprocal">1/x</button>
+            
+            <button class="button small" data-action="open-paren">(</button>
+            <button class="button small" data-action="close-paren">)</button>
+            <button class="button small" data-action="percent">%</button>
+            <button class="button small" data-action="memory-plus">M+</button>
+            <button class="button small" data-action="memory-minus">M-</button>
+            
+            <button class="button small" data-action="memory-clear">MC</button>
+            <button class="button small" data-action="memory-recall">MR</button>
+            <button class="button small" data-action="ans">Ans</button>
+            <button class="button small" data-action="exp">EXP</button>
+            <button class="button small special" data-action="delete">⌫</button>
+        </div>
+        
+        <div class="buttons-container">
+            <button class="button special" data-action="clear">AC</button>
+            <button class="button special" data-action="delete">⌫</button>
+            <button class="button special" data-action="percent">%</button>
+            <button class="button special" data-action="divide">÷</button>
+            
+            <button class="button" data-action="number" data-value="7">7</button>
+            <button class="button" data-action="number" data-value="8">8</button>
+            <button class="button" data-action="number" data-value="9">9</button>
+            <button class="button special" data-action="multiply">×</button>
+            
+            <button class="button" data-action="number" data-value="4">4</button>
+            <button class="button" data-action="number" data-value="5">5</button>
+            <button class="button" data-action="number" data-value="6">6</button>
+            <button class="button special" data-action="subtract">−</button>
+            
+            <button class="button" data-action="number" data-value="1">1</button>
+            <button class="button" data-action="number" data-value="2">2</button>
+            <button class="button" data-action="number" data-value="3">3</button>
+            <button class="button special" data-action="add">+</button>
+            
+            <button class="button zero" data-action="number" data-value="0">0</button>
+            <button class="button" data-action="decimal">.</button>
+            <button class="button equals" data-action="equals">=</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
